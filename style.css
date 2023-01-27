@@ -113,6 +113,33 @@ input {
     padding: 1rem;
 }
 
+input[type='password'] + span {
+    position: relative;
+    font-size: .75rem;
+}
+
+input[type='password'] + span::before {
+    position: absolute;
+}
+
+input[type='password'].error {
+    border: 2px solid red;
+}
+
+input[type='password'].success {
+    border: 2px solid green;
+}
+
+input[type='password'].error + span::before {
+    content: "* Passwords do not match";
+    color: red;
+}
+
+input[type='password'].success + span::before {
+    content: "Passwords match";
+    color: green;
+}
+
 button[type='submit'] {
     margin-top: 2rem;
     padding: .75rem 2rem;
@@ -134,11 +161,11 @@ button[type='submit'] {
 @media screen and (max-width: 750px) {
     body {
         grid-template-columns: 1fr;
-        /* grid-template-rows: 1fr 1fr; */
     }
 
     .hero-container {
         height: 50vh;
+        width: 100%;
     }
 
     .hero-text {
@@ -147,5 +174,13 @@ button[type='submit'] {
 
     .image-credit {
         top: 10px;
+    }
+
+    .content-container {
+        width: 100%;
+    }
+
+    .user-info input {
+        width: 100%;
     }
 }
